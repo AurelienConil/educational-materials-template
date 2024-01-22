@@ -3,8 +3,11 @@
 \usepackage{fancyhdr}
 \usepackage{hyperref}  % Ajoutez cette ligne
 \usepackage{fontspec}  % Ajoutez cette ligne
+\usepackage{graphicx}  % Add this line
+\usepackage{xcolor}    % For coloring the title
 
 % This is the color of campus numerique RVB : 223 33 92
+\definecolor{campus}{RGB}{223,33,92}
 
 % Set Font
 \setmainfont{TeX Gyre Heros}  % 
@@ -16,6 +19,12 @@
 \pagestyle{fancy}
 \fancyfoot[C]{Version du Projet: \input{version.txt}}  % Assurez-vous d'avoir un fichier version.txt dans le même répertoire
 
+% Configuration of the header
+\fancyhead[L]{\includegraphics[width=2cm]{logo.jpg}}  % Replace 'logo.png' with your logo file
+\fancyhead[C]{\textcolor{mycolor}{\input{module_name.txt}}  % Replace 'Your Title' with your title
+\fancyhead[R]{\input{year.txt}}  % Assurez-vous d'avoir un fichier data.txt dans le même répertoire
+%ajout d'une ligne a droite en dessous de year, contenant session_name.txt
+\fancyhead[R]{\input{session_name.txt}}  % Assurez-vous d'avoir un fichier data.txt dans le même répertoire
 
 %Define tighlist
 \providecommand{\tightlist}{%
