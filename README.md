@@ -8,9 +8,12 @@
 # Automatic generative pack
 gh-pages is automatically generated from main, when main is updated.
 
-All markdown files in *content* folder are converted to pdf
-Header and Footer are generated
+All markdown files in *content* folder are converted to pdf. 
+
+Header and Footer are generated. 
+
 Student code and Student ressources are copied too.
+
 Index.html page is generated, with commit ID, date, list of files, etc ...
 
 
