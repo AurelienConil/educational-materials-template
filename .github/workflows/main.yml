@@ -20,6 +20,9 @@ jobs:
     - name: Installer Pandoc
       run: sudo apt-get install pandoc
 
+    - name: Installer pdflatex
+      run: sudo apt-get install texlive-xetex
+
     - name: Conversion en PDF
       run: |
         mkdir -p kit_pedagogique  # Créez le dossier de destination s'il n'existe pas
