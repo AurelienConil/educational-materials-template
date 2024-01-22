@@ -28,6 +28,9 @@ jobs:
     - name: Générer le fichier version.txt
       run: echo $(git rev-parse HEAD) > version.txt
 
+    - name: creation du dossier pedagogique
+      run: mkdir -p kit_pedagogique  # Créez le dossier de destination s'il n'existe pas
+
     - name: Generate HTML page
       run: |
         echo "<html>" > index.html
@@ -48,7 +51,7 @@ jobs:
 
     - name: Conversion en PDF
       run: |
-        mkdir -p kit_pedagogique  # Créez le dossier de destination s'il n'existe pas
+        
 
         for file in content/*.md; do
           # Récupérez le nom du fichier sans l'extension .md
