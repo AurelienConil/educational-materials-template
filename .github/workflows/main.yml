@@ -31,7 +31,7 @@ jobs:
     - name: creation du dossier pedagogique
       run: mkdir -p kit_pedagogique  # Créez le dossier de destination s'il n'existe pas
 
-    - name: Generate HTML page
+    - name: Generate HTML page 
       run: |
         echo "<html>" > index.html
         echo "<head><title>PDF Files</title></head>" >> index.html
@@ -77,7 +77,7 @@ jobs:
 
         cp index.html kit_pedagogique/index.html
 
-    - name: Conversion en PDF
+    - name: Conversion en PDF #Maybe this generator is better : https://github.com/marketplace/actions/markdown-to-pdf-and-html
       run: |
         
 
@@ -86,7 +86,7 @@ jobs:
           filename=$(basename "$file" .md)
           
           # Convertissez le fichier Markdown en PDF
-          pandoc "$file" --template=template/latex_template.tex --pdf-engine=xelatex -o "kit_pedagogique/${filename}.pdf" --pdf-engine-opt=-shell-escape --include-in-header=template/minted-setup.tex
+          pandoc "$file" --template=template/latex_template.tex --pdf-engine=xelatex -o "kit_pedagogique/${filename}.pdf" 
 
         done
 
