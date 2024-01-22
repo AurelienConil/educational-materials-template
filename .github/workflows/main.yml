@@ -34,7 +34,7 @@ jobs:
           filename=$(basename "$file" .md)
           
           # Convertissez le fichier Markdown en PDF
-          pandoc "$file" -o "kit_pedagogique/${filename}.pdf" 
+          pandoc "$file" --template=template/latex_template.tex -o "kit_pedagogique/${filename}.pdf" 
 
         done
 
