@@ -1,0 +1,3 @@
+Here is a super exhaustive documentation. I am sure you will find your answer here.
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2
+

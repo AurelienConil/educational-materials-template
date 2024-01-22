@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{comment}
+\usepackage{fancyhdr}
+
+% Définition d'un nouvel environnement pour exclure les commentaires
+\excludecomment{comment}
+
+% Configuration du footer avec la version du projet
+\pagestyle{fancy}
+\fancyfoot[C]{Version du Projet: \input{version.txt}}  % Assurez-vous d'avoir un fichier version.txt dans le même répertoire
+
+\begin{document}
+
+$body$
+
+\end{document}

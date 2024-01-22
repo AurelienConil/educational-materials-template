@@ -1,0 +1,50 @@
+name: Conversion et Copie
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  convert_and_copy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Générer la Version
+      run: echo "1.0" > $GITHUB_WORKSPACE/version.txt  # Remplacez "1.0" par la version de votre projet
+
+    - name: Checkout du code
+      uses: actions/checkout@v2
+
+    - name: Conversion en PDF
+      run: |
+        mkdir -p kit_pedagogique  # Créez le dossier de destination s'il n'existe pas
+
+        for file in content/*.md; do
+          # Récupérez le nom du fichier sans l'extension .md
+          filename=$(basename "$file" .md)
+          
+          # Convertissez le fichier Markdown en PDF
+          pandoc "$file" -o "kit_pedagogique/${filename}.pdf" --template=latex_template.tex
+
+        done
+
+
+    - name: Copier le Code Eleve
+      run: |
+        mkdir -p kit_pedagogique/code  # Créez le dossier de destination s'il n'existe pas
+        mkdir -p kit_pedagogique/ressources  # Créez le dossier de destination s'il n'existe pas
+        
+        # Copiez l'intégralité du dossier eleve dans le dossier code du kit pédagogique
+        cp -r code/student/* kit_pedagogique/code/
+        cp -r ressources/student/* kit_pedagogique/ressources/
+
+
+    - name: Commit et poussez les changements
+      run: |
+        git config --global user.email "actions@github.com"
+        git config --global user.name "GitHub Actions"
+        git add kit_pedagogique
+        git commit -m "Conversion et copie de fichiers"
+        git push
