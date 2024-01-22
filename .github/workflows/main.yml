@@ -31,6 +31,21 @@ jobs:
     - name: creation du dossier pedagogique
       run: mkdir -p kit_pedagogique  # Créez le dossier de destination s'il n'existe pas
 
+
+
+    - name: Conversion en PDF #Maybe this generator is better : https://github.com/marketplace/actions/markdown-to-pdf-and-html
+      run: |
+        
+
+        for file in content/*.md; do
+          # Récupérez le nom du fichier sans l'extension .md
+          filename=$(basename "$file" .md)
+          
+          # Convertissez le fichier Markdown en PDF
+          pandoc "$file" --template=template/latex_template.tex --pdf-engine=xelatex -o "kit_pedagogique/${filename}.pdf" --pdf-engine-opt=-shell-escape 
+
+        done
+
     - name: Generate HTML page 
       run: |
         echo "<html>" > index.html
@@ -41,7 +56,7 @@ jobs:
         echo "<h3>Commit date: $commit_date</h3>" >> index.html
         echo "<h1>List of PDF Files</h1>" >> index.html
         
-        for file in *.pdf
+        for file in kit_pedagogique/*.pdf
         do
           echo "<a href=\"$file\">$file</a><br>" >> index.html
         done
@@ -77,20 +92,6 @@ jobs:
         echo "</html>" >> index.html
 
         cp index.html kit_pedagogique/index.html
-
-    - name: Conversion en PDF #Maybe this generator is better : https://github.com/marketplace/actions/markdown-to-pdf-and-html
-      run: |
-        
-
-        for file in content/*.md; do
-          # Récupérez le nom du fichier sans l'extension .md
-          filename=$(basename "$file" .md)
-          
-          # Convertissez le fichier Markdown en PDF
-          pandoc "$file" --template=template/latex_template.tex --pdf-engine=xelatex -o "kit_pedagogique/${filename}.pdf" --pdf-engine-opt=-shell-escape 
-
-        done
-
 
     - name: Copier le Code Eleve
       run: |
