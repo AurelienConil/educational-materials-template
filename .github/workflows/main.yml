@@ -48,8 +48,8 @@ jobs:
 
 
     - name: Déployer vers la branche gh-pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages  # La branche à laquelle l'action doit déployer.
-        FOLDER: kit_pedagogique/  # Le dossier à déployer.
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./kit_pedagogique
+            force_orphan: true  # Utiliser cette option pour écraser le contenu existant de la branche gh-pages
