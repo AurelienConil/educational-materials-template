@@ -44,6 +44,8 @@ jobs:
         echo "</body>" >> index.html
         echo "</html>" >> index.html
 
+        cp index.html kit_pedagogique/index.html
+
     - name: Conversion en PDF
       run: |
         mkdir -p kit_pedagogique  # Créez le dossier de destination s'il n'existe pas
