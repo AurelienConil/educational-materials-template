@@ -40,41 +40,37 @@ jobs:
         echo "<h1>Commit date: $commit_date</h1>" >> index.html
         echo "<h1>List of PDF Files</h1>" >> index.html
         
-        for file in *.pdf
-        do
-          echo "<a href=\"$file\">$file</a><br>" >> index.html
-        done
-        echo "<div id='readme-content'></div>" >> index.html
-        // add the content of readme.md to the index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cpp.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ini.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js'></script>" >> index.html
-        echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/xml.min.js'></script>" >> index.html
+        # for file in *.pdf
+        # do
+        #   echo "<a href=\"$file\">$file</a><br>" >> index.html
+        # done
+        # echo "<div id='readme-content'></div>" >> index.html
+        # // add the content of readme.md to the index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/c.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/cpp.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/ini.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/json.min.js'></script>" >> index.html
+        # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/xml.min.js'></script>" >> index.html
 
-        echo "<script>" >> index.html
-        echo "fetch('README.md')" >> index.html
-        echo "  .then(response => response.text())" >> index.html
-        echo "  .then(text => {" >> index.html
-        echo "    const md = window.markdownit();" >> index.html
-        echo "    const result = md.render(text);" >> index.html
-        echo "    document.getElementById('readme-content').innerHTML = result;" >> index.html
-        echo "    document.querySelectorAll('pre code').forEach((block) => {" >> index.html
-        echo "      hljs.highlightBlock(block);" >> index.html
-        echo "    });" >> index.html
-        echo "  });" >> index.html
-
-        
-
-
-        echo "</script>" >> index.html
+        # echo "<script>" >> index.html
+        # echo "fetch('README.md')" >> index.html
+        # echo "  .then(response => response.text())" >> index.html
+        # echo "  .then(text => {" >> index.html
+        # echo "    const md = window.markdownit();" >> index.html
+        # echo "    const result = md.render(text);" >> index.html
+        # echo "    document.getElementById('readme-content').innerHTML = result;" >> index.html
+        # echo "    document.querySelectorAll('pre code').forEach((block) => {" >> index.html
+        # echo "      hljs.highlightBlock(block);" >> index.html
+        # echo "    });" >> index.html
+        # echo "  });" >> index.html
+        # echo "</script>" >> index.html
 
         echo "</body>" >> index.html
         echo "</html>" >> index.html
