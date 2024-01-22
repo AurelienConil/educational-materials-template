@@ -5,6 +5,12 @@
 \usepackage{fontspec}  % Ajoutez cette ligne
 \usepackage{graphicx}  % Add this line
 \usepackage{xcolor}    % For coloring the title
+\usepackage{minted}
+
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
 
 % This is the color of campus numerique RVB : 223 33 92
 \definecolor{campus}{RGB}{223,33,92}
@@ -20,7 +26,7 @@
 \fancyfoot[C]{Version du Projet: \input{version.txt}}  % Assurez-vous d'avoir un fichier version.txt dans le même répertoire
 
 % Configuration of the header
-\fancyhead[L]{ Campus Numerique in the alps}  % Replace 'logo.png' with your logo file
+\fancyhead[L]{\includegraphics[width=4cm]{template/logo.jpg}}  % Replace 'logo.png' with your logo file
 \fancyhead[C]{\textcolor{campus}{\input{template/module_name.txt}}}  % Replace 'Your Title' with your title
 \fancyhead[R]{\input{template/year.txt}}  % Assurez-vous d'avoir un fichier data.txt dans le même répertoire
 %ajout d'une ligne a droite en dessous de year, contenant session_name.txt
