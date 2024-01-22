@@ -16,7 +16,7 @@ jobs:
 
     - name: Checkout du code
       uses: actions/checkout@v2
-      
+
     - name: Installer Pandoc
       run: sudo apt-get install pandoc
 
@@ -29,7 +29,7 @@ jobs:
           filename=$(basename "$file" .md)
           
           # Convertissez le fichier Markdown en PDF
-          pandoc "$file" -o "kit_pedagogique/${filename}.pdf" --template=latex_template.tex
+          pandoc "$file" -o "kit_pedagogique/${filename}.pdf" --template=template/latex_template.tex
 
         done
 
