@@ -16,6 +16,9 @@ jobs:
 
     - name: Checkout du code
       uses: actions/checkout@v2
+      
+    - name: Installer Pandoc
+      run: sudo apt-get install pandoc
 
     - name: Conversion en PDF
       run: |
