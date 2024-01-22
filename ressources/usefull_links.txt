@@ -1,0 +1,2 @@
+https://developer.mozilla.org/en-US/
+https://git-scm.com/docs
