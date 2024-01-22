@@ -32,7 +32,7 @@ jobs:
           filename=$(basename "$file" .md)
           
           # Convertissez le fichier Markdown en PDF
-          pandoc "$file" -o "kit_pedagogique/${filename}.pdf" --pdf-engine=xelatex --template=template/latex_template.tex
+          pandoc "$file" -o "kit_pedagogique/${filename}.pdf" 
 
         done
 
