@@ -37,13 +37,14 @@ jobs:
         echo "<head><title>PDF Files</title></head>" >> index.html
         echo "<body>" >> index.html
         commit_date=$(git show -s --format=%ci)
-        echo "<h1>Commit date: $commit_date</h1>" >> index.html
+        echo "<h1>Educational material template</h1>" >> index.html
+        echo "<h3>Commit date: $commit_date</h3>" >> index.html
         echo "<h1>List of PDF Files</h1>" >> index.html
         
-        # for file in *.pdf
-        # do
-        #   echo "<a href=\"$file\">$file</a><br>" >> index.html
-        # done
+        for file in *.pdf
+        do
+          echo "<a href=\"$file\">$file</a><br>" >> index.html
+        done
         # echo "<div id='readme-content'></div>" >> index.html
         # // add the content of readme.md to the index.html
         # echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/markdown-it/8.4.2/markdown-it.min.js'></script>" >> index.html
