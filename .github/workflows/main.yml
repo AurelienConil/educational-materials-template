@@ -24,6 +24,9 @@ jobs:
 
     - name: Installer pdflatex
       run: sudo apt-get install texlive-xetex
+    
+    - name: Générer le fichier version.txt
+      run: echo $(git rev-parse HEAD) > version.txt
 
     - name: Conversion en PDF
       run: |
