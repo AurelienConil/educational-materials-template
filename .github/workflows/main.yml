@@ -28,6 +28,22 @@ jobs:
     - name: Générer le fichier version.txt
       run: echo $(git rev-parse HEAD) > version.txt
 
+    - name: Generate HTML page
+      run: |
+        echo "<html>" > index.html
+        echo "<head><title>PDF Files</title></head>" >> index.html
+        echo "<body>" >> index.html
+        commit_date=$(git show -s --format=%ci)
+        echo "<h1>Commit date: $commit_date</h1>" >> index.html
+        echo "<h1>List of PDF Files</h1>" >> index.html
+        
+        for file in *.pdf
+        do
+          echo "<a href=\"$file\">$file</a><br>" >> index.html
+        done
+        echo "</body>" >> index.html
+        echo "</html>" >> index.html
+
     - name: Conversion en PDF
       run: |
         mkdir -p kit_pedagogique  # Créez le dossier de destination s'il n'existe pas
